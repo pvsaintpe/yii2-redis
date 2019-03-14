@@ -18,13 +18,13 @@ class Cache extends \yii\caching\Cache
     /**
      * Initializes the redis Cache component.
      * This method will initialize the [[redis]] property to make sure it refers to a valid redis connection.
-     * @throws \yii\base\InvalidConfigException if [[redis]] is invalid.
+     * @throws
      */
     public function init()
     {
         parent::init();
         $this->redis = Instance::ensure($this->redis, Connection::className());
-        $this->redis->open();
+        $this->redis->open($this->redis->hostname);
     }
 
 

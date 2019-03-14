@@ -78,7 +78,7 @@ class Connection extends Redis implements Configurable
      * It does nothing if a DB connection has already been established.
      * @throws RedisException if connection fails
      */
-    public function open()
+    public function open($host, $port = NULL, $timeout = NULL, $retry_interval = NULL)
     {
         if ($this->unixSocket !== null) {
             $isConnected = $this->connect($this->unixSocket);
